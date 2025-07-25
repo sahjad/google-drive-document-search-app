@@ -1,5 +1,15 @@
 @echo off
 
+for /f "usebackq tokens=1,* delims==" %%A in (`type ".env.config"`) do (
+    set "%%A=%%B"
+)
+
+if not exist "%CREDENTIALS_PATH%" (
+    echo ERROR: Credentials file not found at path: %CREDENTIALS_PATH%
+    echo Please check your .env.config file and ensure the credentials.json exists.
+    exit /b 1
+)
+
 echo Activating virtual environment...
 call venv\Scripts\activate.bat
 

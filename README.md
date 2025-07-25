@@ -5,7 +5,7 @@ This project is a **real-time document search service** that indexes the content
 - Google Drive API for reading files (.txt, .pdf, .csv, .png)
 - Elasticsearch for full-text search
 - FastAPI for backend API
-- Webhook-based real-time updates using Google Drive Push Notifications
+- Webhook-based real-time (Event Based) updates using Google Drive Push Notifications
 - Ngrok for exposing your local server to receive webhook notifications
 
 ---
@@ -43,7 +43,7 @@ Before starting, ensure the following are installed:
 5. Go to **Credentials** → Create **OAuth client ID** (choose Desktop App).
 6. Download `credentials.json` and place it in:
    ```bash
-   document-search-app-realtime/config/credentials.json
+   googledrive-document-search-app/config/credentials.json
    ```
 
 ---
@@ -93,7 +93,7 @@ ngrok config add-authtoken <your-ngrok-token>
 ## Step 4: Install Dependencies
 
 ```bash
-cd document-search-app-realtime
+cd googledrive-document-search-app
 python -m venv venv
 venv\Scripts\activate  # or `source venv/bin/activate` on Mac/Linux
 pip install -r requirements.txt
@@ -162,7 +162,7 @@ To launch everything with a single command (Ngrok + ES + Webhook):
 
 ```bash
 startup.bat   # On Windows
-sh startup.sh # On Mac/Linux
+./startup.sh # On Mac/Linux
 ```
 
 This does the following:

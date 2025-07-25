@@ -1,5 +1,17 @@
 #!/bin/bash
 
+set -o allexport
+source .env.config 2>/dev/null
+set +o allexport
+
+
+if [ ! -f "$CREDENTIALS_PATH" ]; then
+  echo "ERROR: Credentials file not found at path: $CREDENTIALS_PATH"
+  echo "Please check your .env.config file and ensure the credentials.json exists."
+  exit 1
+fi
+
+
 echo "Activating virtual environment..."
 source venv/bin/activate
 
