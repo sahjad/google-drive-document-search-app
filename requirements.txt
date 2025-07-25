@@ -1,0 +1,12 @@
+elasticsearch
+fastapi
+google-api-python-client
+google-auth-oauthlib
+pandas
+pdfminer.six
+PyPDF2
+pydantic
+pytesseract
+python-dotenv
+python-multipart
+uvicorn

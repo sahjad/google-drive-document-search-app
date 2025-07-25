@@ -1,0 +1,22 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+
+# Sensitive credential files
+config/credentials.json
+config/token.json
+
+# VS Code config (optional)
+.vscode/
+
+# Logs
+*.log
+
+# Mac OS junk files
+.DS_Store
