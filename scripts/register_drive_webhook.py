@@ -1,6 +1,7 @@
 import uuid
 import os
 import sys
+import time
 from datetime import datetime
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
@@ -8,11 +9,12 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 
-load_dotenv()
+load_dotenv(dotenv_path=".env")
+load_dotenv(dotenv_path=".env.config")
 
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
-CREDENTIALS_PATH = 'config/credentials.json'
-TOKEN_PATH = 'config/token.json'
+CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH")
+TOKEN_PATH = os.getenv("TOKEN_PATH")
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 
 def authenticate():
@@ -56,7 +58,8 @@ def register_watch():
     body = {
         "id": channel_id,
         "type": "web_hook",
-        "address": WEBHOOK_URL
+        "address": WEBHOOK_URL,
+        "expiration": str(int(time.time() + 604800) * 1000) 
     }
 
     try:

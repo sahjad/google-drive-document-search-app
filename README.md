@@ -230,6 +230,7 @@ Returns list of matching file names from Drive.
 ├── scripts/                  # Webhook registration script
 ├── config/                   # credentials.json + token.json
 ├── main.py                   # FastAPI app with initial sync
+├── tests/                    # Contains unit test files
 ├── .env                      # Contains WEBHOOK_URL
 ├── requirements.txt
 ├── startup.bat / startup.sh      # Optional automation scripts
@@ -239,6 +240,6 @@ Returns list of matching file names from Drive.
 
 ## Known Limitations
 
-- Webhook expires every 24 hours (re-registration needed)
+- Google Drive webhooks (registered via changes().watch) expires every 7 days (maximum allowed)
 - OCR may fail on noisy/scanned images
-- Max file size: 2MB (can be configured)
+- Max file size: 2MB (can be configured in .env.config)

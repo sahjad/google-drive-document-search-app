@@ -3,15 +3,20 @@
 
 import os
 import io
+from dotenv import load_dotenv
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 
+load_dotenv(dotenv_path=".env")
+load_dotenv(dotenv_path=".env.config")
+
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
-CREDENTIALS_PATH = 'config/credentials.json'
-TOKEN_PATH = 'config/token.json'
+CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH")
+TOKEN_PATH = os.getenv("TOKEN_PATH")
+MAX_FILE_SIZE_MB = int(os.getenv("MAX_FILE_SIZE_MB"))
 
 SUPPORTED_MIME_TYPES = {
     'text/plain': '.txt',
@@ -19,7 +24,6 @@ SUPPORTED_MIME_TYPES = {
     'application/pdf': '.pdf',
     'image/png': '.png'
 }
-MAX_FILE_SIZE_MB = 2
 
 class GoogleDriveConnector:
     def __init__(self):
