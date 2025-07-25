@@ -28,7 +28,7 @@ Before starting, ensure the following are installed:
 | Requirement      | Install Command |
 |------------------|------------------|
 | Python (>= 3.8)  | _Already assumed_ |
-| [Ngrok](https://ngrok.com/download) | Manual install or `brew install ngrok` |
+| Ngrok            | [Install Ngrok](https://ngrok.com/download) |
 | Docker           | [Install Docker](https://docs.docker.com/get-docker/) |
 | Google Cloud Project | Needed to get Drive API credentials |
 
