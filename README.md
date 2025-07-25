@@ -45,6 +45,12 @@ Before starting, ensure the following are installed:
    ```bash
    googledrive-document-search-app/config/credentials.json
    ```
+Note:
+It is recommended to secure sensitive files like credentials.json using a cloud Key Vault service, such as:
+1. Google Secret Manager
+2. Azure Key Vault
+3. AWS Secrets Manager
+This ensures your OAuth credentials are not exposed in the file system or version control.
 
 ---
 
