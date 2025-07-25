@@ -217,6 +217,26 @@ Returns list of matching file names from Drive.
 
 ---
 
+## Configuration
+
+The application uses environment files for managing configuration. `.env.config`, contains system parameters like file size limits and credential paths.
+
+```env
+CREDENTIALS_PATH=config/credentials.json
+TOKEN_PATH=config/token.json
+MAX_FILE_SIZE_MB=2
+```
+
+---
+
+## High-Level Design Diagram
+
+The following diagram illustrates the architecture of the Document Search Application:
+
+![High-Level Design Diagram](Design_diagram.jpg)
+
+---
+
 ## Directory Structure
 
 ```
